@@ -2,7 +2,7 @@
 
 I make small things that work: phone apps, tools for coding agents, things you talk to, odd automations. Most of them stay in a jar until they can fly on their own. The one that's out is [macbox](https://github.com/TUNA-NOPE/macbox).
 
-<img src="plates/visitors.svg?n=0" width="100%" alt="Plate II: moths pinned by visitors. A text version is at the bottom.">
+<img src="plates/visitors.svg?n=1" width="100%" alt="Plate II: moths pinned by visitors. A text version is at the bottom.">
 
 **Leave a moth.** [Open this issue](https://github.com/TUNA-NOPE/TUNA-NOPE/issues/new?title=moth%7Chuman&body=Press+Submit+and+that%27s+it.+Nothing+else+to+write.) and press Submit. A moth is bred from your username, no two come out alike, and it gets pinned to the plate with a number. It takes about a minute.
 
