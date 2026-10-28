@@ -1,0 +1,50 @@
+name: Pin a moth
+
+on:
+  issues:
+    types: [opened]
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: moths
+  cancel-in-progress: false
+
+jobs:
+  pin:
+    if: startsWith(github.event.issue.title, 'moth|')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Breed and pin
+        id: pin
+        env:
+          LOGIN: ${{ github.event.issue.user.login }}
+          TITLE: ${{ github.event.issue.title }}
+          BODY: ${{ github.event.issue.body }}
+          OWNER: ${{ github.repository_owner }}
+        run: python3 scripts/moths.py add >> "$GITHUB_OUTPUT"
+
+      - name: Commit
+        if: steps.pin.outputs.status == 'pinned'
+        env:
+          LOGIN: ${{ github.event.issue.user.login }}
+          NO: ${{ steps.pin.outputs.no }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data plates collection.md README.md
+          git commit -m "Pin moth No. $NO for @$LOGIN"
+          git pull --rebase
+          git push
+
+      - name: Reply and close
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+          NUMBER: ${{ github.event.issue.number }}
+          MESSAGE: ${{ steps.pin.outputs.message || 'Something went wrong while pinning. The keeper will look at it.' }}
+        run: gh issue close "$NUMBER" --repo "$GITHUB_REPOSITORY" --comment "$MESSAGE"

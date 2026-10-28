@@ -1,0 +1,10 @@
+[
+  {"seed": "malus", "latin": "Malus in vitro", "note": "A Mac kept alive in a Linux jar, with Xcode and the iOS Simulator.", "public": "macbox"},
+  {"seed": "frigoris", "latin": "Frigoris vigil", "note": "Watches the fridge door and keeps count of what went in and what came out."},
+  {"seed": "mercator", "latin": "Mercator noctis", "note": "A market terminal you talk to. Type a ticker or a question."},
+  {"seed": "vox", "latin": "Vox domestica", "note": "An assistant you talk to out loud, in real time."},
+  {"seed": "remotus", "latin": "Remotus agentium", "note": "A remote for coding agents, so they keep working while you're out."},
+  {"seed": "fenestra", "latin": "Fenestra clausa", "note": "Sealed desktops where agents can click around without breaking anything."},
+  {"seed": "pistor", "latin": "Pistor nocturnus", "note": "The back office of a bakery: orders, ovens, stock."},
+  {"seed": "auris", "latin": "Auris telephonica", "note": "Listens along to phone calls and writes them down as they happen."}
+]

@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="380" viewBox="0 0 1000 380">
+<defs>
+  <filter id="grain" x="0" y="0" width="100%" height="100%">
+    <feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" seed="7"/>
+    <feColorMatrix values="0 0 0 0 .25  0 0 0 0 .2  0 0 0 0 .12  0 0 0 .9 0"/>
+    <feComposite in2="SourceGraphic" operator="in"/>
+  </filter>
+  <radialGradient id="age" cx=".5" cy=".45" r=".75">
+    <stop offset=".6" stop-color="#7a5a30" stop-opacity="0"/><stop offset="1" stop-color="#7a5a30" stop-opacity=".22"/>
+  </radialGradient>
+  <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+    <feDropShadow dx="2.5" dy="3.5" stdDeviation="2.2" flood-color="#3a2a1a" flood-opacity=".3"/>
+  </filter>
+</defs>
+<rect width="1000" height="380" fill="#eee6d3"/>
+<rect width="1000" height="380" filter="url(#grain)" opacity=".16"/>
+<rect width="1000" height="380" fill="url(#age)"/>
+<rect x="14" y="14" width="972" height="352" fill="none" stroke="#2b2520" stroke-width="1.4"/>
+<rect x="20" y="20" width="960" height="340" fill="none" stroke="#2b2520" stroke-width=".5"/>
+<g font-family="'Iowan Old Style','Palatino Linotype',Palatino,'Book Antiqua',Georgia,'Times New Roman',serif" fill="#2b2520" text-anchor="middle">
+  <text x="500.0" y="62" font-size="15" letter-spacing="6">PLATE  II</text>
+  <text x="500.0" y="90" font-size="20" font-style="italic">Visitors, pinned with their permission</text>
+</g>
+<g font-family="'Iowan Old Style','Palatino Linotype',Palatino,'Book Antiqua',Georgia,'Times New Roman',serif" text-anchor="middle"><circle cx="105" cy="172" r="34" fill="none" stroke="#8d8473" stroke-width=".7" stroke-dasharray="2 4" opacity=".7"/><circle cx="105" cy="171" r="1.7" fill="#1b1714"/><g transform="rotate(-0.3 105 261.9)"><rect x="35" y="238" width="140" height="47.7" fill="#f8f3e6" stroke="#2b2520" stroke-width=".6"/><text x="105" y="255.7" font-size="10.5" fill="#8d8473" font-style="italic">No. 1</text><text x="105" y="271.1" font-size="12" fill="#8d8473" font-style="italic">vacant</text></g><circle cx="263" cy="172" r="34" fill="none" stroke="#8d8473" stroke-width=".7" stroke-dasharray="2 4" opacity=".7"/><circle cx="263" cy="171" r="1.7" fill="#1b1714"/><g transform="rotate(1 263 261.9)"><rect x="193" y="238" width="140" height="47.7" fill="#f8f3e6" stroke="#2b2520" stroke-width=".6"/><text x="263" y="255.7" font-size="10.5" fill="#8d8473" font-style="italic"> </text><text x="263" y="271.1" font-size="12" fill="#8d8473" font-style="italic">vacant</text></g><circle cx="421" cy="172" r="34" fill="none" stroke="#8d8473" stroke-width=".7" stroke-dasharray="2 4" opacity=".7"/><circle cx="421" cy="171" r="1.7" fill="#1b1714"/><g transform="rotate(0.6 421 261.9)"><rect x="351" y="238" width="140" height="47.7" fill="#f8f3e6" stroke="#2b2520" stroke-width=".6"/><text x="421" y="255.7" font-size="10.5" fill="#8d8473" font-style="italic"> </text><text x="421" y="271.1" font-size="12" fill="#8d8473" font-style="italic">vacant</text></g><circle cx="579" cy="172" r="34" fill="none" stroke="#8d8473" stroke-width=".7" stroke-dasharray="2 4" opacity=".7"/><circle cx="579" cy="171" r="1.7" fill="#1b1714"/><g transform="rotate(1.2 579 261.9)"><rect x="509" y="238" width="140" height="47.7" fill="#f8f3e6" stroke="#2b2520" stroke-width=".6"/><text x="579" y="255.7" font-size="10.5" fill="#8d8473" font-style="italic"> </text><text x="579" y="271.1" font-size="12" fill="#8d8473" font-style="italic">vacant</text></g><circle cx="737" cy="172" r="34" fill="none" stroke="#8d8473" stroke-width=".7" stroke-dasharray="2 4" opacity=".7"/><circle cx="737" cy="171" r="1.7" fill="#1b1714"/><g transform="rotate(-1.5 737 261.9)"><rect x="667" y="238" width="140" height="47.7" fill="#f8f3e6" stroke="#2b2520" stroke-width=".6"/><text x="737" y="255.7" font-size="10.5" fill="#8d8473" font-style="italic"> </text><text x="737" y="271.1" font-size="12" fill="#8d8473" font-style="italic">vacant</text></g><circle cx="895" cy="172" r="34" fill="none" stroke="#8d8473" stroke-width=".7" stroke-dasharray="2 4" opacity=".7"/><circle cx="895" cy="171" r="1.7" fill="#1b1714"/><g transform="rotate(1.1 895 261.9)"><rect x="825" y="238" width="140" height="47.7" fill="#f8f3e6" stroke="#2b2520" stroke-width=".6"/><text x="895" y="255.7" font-size="10.5" fill="#8d8473" font-style="italic"> </text><text x="895" y="271.1" font-size="12" fill="#8d8473" font-style="italic">vacant</text></g></g><text x="500.0" y="346" font-family="'Iowan Old Style','Palatino Linotype',Palatino,'Book Antiqua',Georgia,'Times New Roman',serif" font-size="12.5" font-style="italic" fill="#8d8473" text-anchor="middle">No visitors yet. No. 1 is still free.</text></svg>
