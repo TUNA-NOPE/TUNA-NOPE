@@ -317,7 +317,12 @@ def render_works(works):
     return "".join(s)
 
 
-def latin(login):
+KEEPER = "Lanterna nocturna"
+
+
+def latin(login, no=None):
+    if no == 0:
+        return KEEPER
     r = rng_for("genus:" + login.lower())
     ep = re.sub(r"[^a-z]", "", login.lower())[:14] or "anonyma"
     return f"{r.choice(GENERA)} {ep}{'na' if ep.endswith('a') else 'ana'}"
@@ -344,9 +349,9 @@ def render_visitors(moths):
         if slot < len(shown):
             m = shown[slot]
             s.append(f'<g transform="translate({n(cx)},{n(cy)}) scale(.85)" filter="url(#shadow)">'
-                     f'{moth("visitor:" + m["login"].lower(), f"v{slot}", m["kind"])}</g>')
+                     f'{moth("keeper" if m["no"] == 0 else "visitor:" + m["login"].lower(), f"v{slot}", m["kind"])}</g>')
             who = "the keeper" if m["no"] == 0 else "@" + short(m["login"], 22)
-            name = latin(m["login"])
+            name = latin(m["login"], m["no"])
             rows = [(f"No. {m['no']}", 10.5, "i", PENCIL), (name, 12 if len(name) <= 21 else 10.5, "i", INK), (who, 11, "", INK)]
             if m["kind"] == "agent":
                 rows.append((short("agent" + (f", {m['model']}" if m.get("model") else ""), 26), 10, "i", RED_INK))
@@ -388,7 +393,7 @@ def render():
     for m in sorted(moths, key=lambda m: m["no"]):
         who = "the keeper" if m["no"] == 0 else f"[@{m['login']}](https://github.com/{m['login']})"
         kind = " (agent" + (f", {m['model']}" if m.get("model") else "") + ")" if m["kind"] == "agent" else ""
-        rows.append(f"| {m['no']} | *{latin(m['login'])}* | {who}{kind} | {m['date']} |")
+        rows.append(f"| {m['no']} | *{latin(m['login'], m['no'])}* | {who}{kind} | {m['date']} |")
     (ROOT / "collection.md").write_text("# The drawer\n\nEvery moth pinned so far, oldest first.\n\n" + "\n".join(rows) + "\n")
 
     readme = (ROOT / "README.md").read_text()
@@ -414,7 +419,7 @@ def add():
     moths = json.loads((DATA / "moths.json").read_text())
     have = next((m for m in moths if m["login"].lower() == login.lower()), None)
     if have:
-        msg = f"You already have one: No. {have['no']}, *{latin(login)}*. One moth per visitor."
+        msg = f"You already have one: No. {have['no']}, *{latin(login, have['no'])}*. One moth per visitor."
         print(f"status=exists\nno={have['no']}\nmessage={msg}")
         return
     no = 0 if login.lower() == owner.lower() else max([m["no"] for m in moths] + [0]) + 1
@@ -423,7 +428,7 @@ def add():
     moths.append({"no": no, "login": login, "kind": kind, "model": model, "date": f"{date.day}.{roman}.{date.year}"})
     (DATA / "moths.json").write_text(json.dumps(moths, indent=2) + "\n")
     render()
-    msg = (f"Pinned. No. {no}, *{latin(login)}*, is on the plate at https://github.com/{owner}. "
+    msg = (f"Pinned. No. {no}, *{latin(login, no)}*, is on the plate at https://github.com/{owner}. "
            "GitHub caches images, so it can take a few minutes to show up.")
     print(f"status=pinned\nno={no}\nmessage={msg}")
 
